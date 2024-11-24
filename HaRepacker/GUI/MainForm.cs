@@ -1274,7 +1274,14 @@ namespace HaRepacker.GUI
 
                 WzFileParseStatus parseStatus = f.ParseWzFile();
 
-                serializer.SerializeFile(f, Path.Combine(baseDir, f.Name));
+                String fileName = f.Name;
+                if (Program.ConfigurationManager.UserSettings.ExcludeWzImgExport)
+                {
+                    int lastWzIndex = fileName.LastIndexOf(".wz");
+                    fileName = fileName.Substring(0, lastWzIndex);
+                }
+
+                serializer.SerializeFile(f, Path.Combine(baseDir, fileName));
                 f.Dispose();
                 UpdateProgressBar(MainPanel.mainProgressBar, 1, false, false);
             }
