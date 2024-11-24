@@ -48,6 +48,10 @@ namespace HaRepacker.GUI
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.ExportOptionPanel = new System.Windows.Forms.Panel();
+            this.ExportPanelHeader = new System.Windows.Forms.Label();
+            this.ImageExportFolderOption = new System.Windows.Forms.CheckBox();
+            this.ExportOptionPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // sortBox
@@ -165,10 +169,30 @@ namespace HaRepacker.GUI
             resources.ApplyResources(this.label5, "label5");
             this.label5.Name = "label5";
             // 
+            // ExportPanelHeader
+            // 
+            resources.ApplyResources(this.ExportPanelHeader, "ExportPanelHeader");
+            this.ExportPanelHeader.Name = "ExportPanelHeader";
+            // 
+            // ExportOptionPanel
+            // 
+            this.ExportOptionPanel.Controls.Add(ImageExportFolderOption);
+            this.ExportOptionPanel.Controls.Add(ExportPanelHeader);
+            resources.ApplyResources(this.ExportOptionPanel, "ExportOptionPanel");
+            this.ExportOptionPanel.Name = "ExportOptionPanel";
+            // 
+            // ImageExportFolderOption
+            // 
+            resources.ApplyResources(this.ImageExportFolderOption, "ImageExportFolderOption");
+            this.ImageExportFolderOption.Name = "ImageExportFolderOption";
+            this.ImageExportFolderOption.UseVisualStyleBackColor = true;
+            this.ImageExportFolderOption.CheckedChanged += ImageExportFolderOption_CheckChanged;
+            // 
             // OptionsForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ExportOptionPanel);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.okButton);
@@ -176,8 +200,9 @@ namespace HaRepacker.GUI
             this.Name = "OptionsForm";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.ExportOptionPanel.ResumeLayout(false);
+            this.ExportOptionPanel.PerformLayout();
             this.ResumeLayout(false);
-
         }
 
         #endregion
@@ -199,5 +224,8 @@ namespace HaRepacker.GUI
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label ExportPanelHeader;
+        private System.Windows.Forms.Panel ExportOptionPanel;
+        private System.Windows.Forms.CheckBox ImageExportFolderOption;
     }
 }
